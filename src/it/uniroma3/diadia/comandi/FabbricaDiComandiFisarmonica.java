@@ -6,15 +6,16 @@ import it.uniroma3.diadia.IO;
 
 public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi {
 	
-	static final private String[] elencoComandi = {"vai" , "aiuto" , "fine" , "prendi" , "posa" , "guarda"};
+	static final private String[] elencoComandi = {"vai" , "aiuto" , "fine" , "prendi" , "posa" , "guarda" , "interagisci" ,
+			"saluta" , "nonValido"};
 
 	@Override
-	public Comando costruisciComando(String istruzione, IO io) {
+	public AbstractComando costruisciComando(String istruzione, IO io) {
 		
 		try (Scanner scannerDiParole = new Scanner(istruzione)){
 			String nomeComando = null;
 			String parametro = null;
-			Comando comando = null;
+			AbstractComando comando = null;
 			if(scannerDiParole.hasNext())
 				nomeComando = scannerDiParole.next();
 			if(scannerDiParole.hasNext())
